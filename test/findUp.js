@@ -12,9 +12,12 @@ test('find a file in startDir', function(t) {
 });
 
 test('find a file in a parent dir', function(t) {
-  findUp('template.html', 'docs/goodbye', 'docs', function(err, result) {
+  findUp('template.html', 'docs/goodbye/cruel/world', 'docs',
+    function(err, result)
+  {
     t.notOk(err, 'should complete without error');
-    t.equal(result, 'docs/template.html', 'should resolve to template.html');
+    t.equal(result, 'docs/goodbye/cruel/template.html',
+      'should resolve to template.html');
     t.end();    
   });
 });
@@ -27,18 +30,30 @@ test('look for a file that exists above our stop dir', function(t) {
   });
 });
 
-test('look for multiple filenames, only one of which exists', function(t) {
-  findUp(['findUp.js', 'foo', 'template.html', 'bar'], 'docs/goodbye', 'docs',
-  function(err, result)
+test('look for a file that occurs multiple times in the tree', function(t) {
+  findUp('template.html', 'docs/goodbye/cruel/world', 'docs',
+    function(err, result)
   {
     t.notOk(err, 'should complete without error');
-    t.equal(result, 'docs/template.html', 'should resolve to template.html');
+    t.equal(result, 'docs/goodbye/cruel/template.html',
+      'should find the deepest match');
+    t.end();    
+  });
+});
+
+test('look for multiple filenames, only one of which exists', function(t) {
+  findUp(['findUp.js', 'foo', 'template.html', 'bar'], 'docs/goodbye', 'docs',
+    function(err, result)
+  {
+    t.notOk(err, 'should complete without error');
+    t.equal(result, 'docs/goodbye/template.html',
+      'should resolve to template.html');
     t.end();    
   });
 });
 
 test('look for multiple filenames, which exist in different dirs', function(t) {
-  findUp(['404.md', 'template.html'], 'docs/goodbye', 'docs',
+  findUp(['404.md', 'hello.md'], 'docs/goodbye', 'docs',
   function(err, result)
   {
     t.notOk(err, 'should complete without error');
@@ -49,12 +64,12 @@ test('look for multiple filenames, which exist in different dirs', function(t) {
 });
 
 test('look for multiple filenames, which exist in the same dir', function(t) {
-  findUp(['hello.md', 'template.html'], 'docs/goodbye', 'docs',
+  findUp(['404.md', 'template.html'], 'docs/goodbye', 'docs',
   function(err, result)
   {
     t.notOk(err, 'should complete without error');
-    t.equal(result, 'docs/hello.md',
-      'should resolve to the first match (hello.md)');
+    t.equal(result, 'docs/goodbye/404.md',
+      'should resolve to the first match (404.md)');
     t.end();    
   });
 });

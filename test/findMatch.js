@@ -12,18 +12,18 @@ test('resolve a target that has no extension', function(t) {
 });
 
 test('resolve a target that has a known extension', function(t) {
-  findMatch('docs/goodbye/index.mdown', function(err, result) {
+  findMatch('docs/goodbye/cruel/world/index.mdown', function(err, result) {
     t.notOk(err, 'should complete without error');
-    t.equal(result, 'docs/goodbye/index.mdown',
+    t.equal(result, 'docs/goodbye/cruel/world/index.mdown',
       'should resolve to index.mdown');
     t.end();
   });
 });
 
 test('resolve a target that is a directory', function(t) {
-  findMatch('docs/goodbye', function(err, result) {
+  findMatch('docs/goodbye/cruel/world', function(err, result) {
     t.notOk(err, 'should complete without error');
-    t.equal(result, 'docs/goodbye/index.mdown',
+    t.equal(result, 'docs/goodbye/cruel/world/index.mdown',
       'should resolve to index.mdown');
     t.end();
   });
