@@ -30,6 +30,16 @@ test('look for a file that exists above our stop dir', function(t) {
   });
 });
 
+test('look for a file that does not exist at all', function(t) {
+  findUp('foo.bar.baz', 'docs/goodbye/cruel/world', 'docs',
+    function(err, result)
+  {
+    t.notOk(err, 'should complete without error');
+    t.notOk(result, 'should not find non-existent files');
+    t.end();    
+  });
+})
+
 test('look for a file that occurs multiple times in the tree', function(t) {
   findUp('template.html', 'docs/goodbye/cruel/world', 'docs',
     function(err, result)

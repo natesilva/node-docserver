@@ -47,8 +47,16 @@ test('resolve a target with a leading dot', function(t) {
 });
 
 
-test('resolve a target with an unknown extension', function(t) {
+test('resolve a non-existing target with an unknown extension', function(t) {
   findMatch('./docs/hello.getdown', function(err, result) {
+    t.notOk(err, 'should complete without error');
+    t.notOk(result, 'result should be empty');
+    t.end();
+  });
+});
+
+test('resolve an existing target with an unknown extension', function(t) {
+  findMatch('./docs/goodbye/template.html', function(err, result) {
     t.notOk(err, 'should complete without error');
     t.notOk(result, 'result should be empty');
     t.end();
