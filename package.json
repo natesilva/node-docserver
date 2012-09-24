@@ -24,7 +24,8 @@
     "async": "~0.1.22"
   },
   "devDependencies": {
-    "connect": "~2.4.6"
+    "connect": "~2.4.6",
     "union": "~0.3.4",
+    "tap": "~0.3.1"
   }
 }
