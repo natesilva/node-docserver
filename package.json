@@ -1,0 +1,30 @@
+{
+  "author": "Nate Silva <nate@natesilva.com> (http://natesilva.com/)",
+  "name": "docserver",
+  "description": "Serve Markdown documents as static content (middleware)",
+  "version": "0.0.1",
+  "homepage": "https://github.com/natesilva/docserver",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:natesilva/docserver.git"
+  },
+  "main": "./lib/docserver.js",
+  "keywords": [
+    "static",
+    "web",
+    "server",
+    "markdown",
+    "middleware"
+  ],
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "marked": "~0.2.5",
+    "async": "~0.1.22"
+  },
+  "devDependencies": {
+    "connect": "~2.4.6"
+    "union": "~0.3.4",
+  }
+}
