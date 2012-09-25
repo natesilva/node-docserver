@@ -1,6 +1,15 @@
-# osx noise
-.DS_Store
-profile
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
 
-# node noise
+pids
+logs
+results
+
 node_modules
+npm-debug.log
