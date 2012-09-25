@@ -7,6 +7,7 @@ var connect = require('connect')
 
 var app = connect();
 
+app.use(connect.logger());
 app.use(docserver({
   dir: './test/docs'
 }));
