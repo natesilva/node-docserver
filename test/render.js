@@ -5,13 +5,10 @@ var test = require('tap').test
   ;
 
 
-MIDDLEWARE_OPTIONS = {
-  dir: 'docs',
-  cache: new MemoryCache()
-};
+var DOCS_DIR = 'docs';
 
 function testRender(t, md, html, description) {
-  render(md, MIDDLEWARE_OPTIONS, function(err, result) {
+  render(md, DOCS_DIR, function(err, result) {
     t.notOk(err, 'should complete without error');
     var data = fs.readFileSync(html);
     t.equal(data.toString(), result, description);
@@ -44,7 +41,7 @@ test('render a file that has no template', function(t) {
 });
 
 test('render a non-existent file', function(t) {
-  render('docs/foo.bar.baz', MIDDLEWARE_OPTIONS, function(err, result) {
+  render('docs/foo.bar.baz', DOCS_DIR, function(err, result) {
     t.ok(err, 'should return an error');
     t.type(err, 'Error', 'type of err is Error');
     t.end();
