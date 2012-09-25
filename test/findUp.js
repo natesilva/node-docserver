@@ -83,3 +83,11 @@ test('look for multiple filenames, which exist in the same dir', function(t) {
     t.end();    
   });
 });
+
+test('startDir not a subdir of stopDir should be an error', function(t) {
+  findUp('hello.md', 'docs/goodbye', '/tmp', function(err, result) {
+    t.ok(err, 'should be an error');
+    t.type(err, Error, 'err should be an Error object');
+    t.end();
+  });
+});
