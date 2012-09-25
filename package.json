@@ -6,7 +6,7 @@
   "homepage": "https://github.com/natesilva/node-docserver",
   "repository": {
     "type": "git",
-    "url": "git@github.com:natesilva/node-docserver.git"
+    "url": "git://github.com/natesilva/node-docserver.git"
   },
   "main": "./lib/docserver.js",
   "keywords": [
