@@ -14,42 +14,6 @@ test('save and retrieve a cache value', function(t) {
   });
 });
 
-test('delete a cache value', function(t) {
-  var mc = new MemoryCache();
-  mc.set('age', 42);
-  mc.get('age', function(err, value) {
-    t.notOk(err, 'should complete without error');
-    t.equal(value, 42, 'cache value should be what was set');
-    mc.del('age');
-    mc.get('age', function(err, value) {
-      t.notOk(err, 'should complete without error');
-      t.notOk(value, 'value should not be set');
-      t.end();
-    });
-  });
-});
-
-test('delete one of several cache values', function(t) {
-  var mc = new MemoryCache();
-  mc.set('age', 42);
-  mc.set('country', 'USA');
-  mc.set('school', 'Hard Knocks');
-  mc.get('age', function(err, value) {
-    t.notOk(err, 'should complete without error');
-    t.equal(value, 42, 'cache value should be what was set');
-    mc.del('age');
-    mc.get('age', function(err, value) {
-      t.notOk(err, 'should complete without error');
-      t.notOk(value, 'value should not be set');
-      mc.get('school', function(err, value) {
-        t.notOk(err, 'should complete without error');
-        t.equal(value, 'Hard Knocks', 'other values should still be set');
-        t.end();
-      });
-    });
-  });
-});
-
 test('flush (delete) all cache values', function(t) {
   var mc = new MemoryCache();
   mc.set('age', 42);
