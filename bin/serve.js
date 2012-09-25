@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // bare-bones server with no external dependencies
 
 var http = require('http')
@@ -7,6 +9,8 @@ var http = require('http')
 
 var dir = process.argv[2] || path.join(__dirname, '..', 'test', 'docs');
 var port = process.argv[3] || 3000;
+
+dir = path.resolve(dir);
 
 var middleware = docserver({
   url: '/',
