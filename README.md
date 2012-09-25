@@ -25,8 +25,8 @@ var express = require('express')
 
 var app = express();
 app.use(docserver({
-  dir: 'docs',    // serve Markdown files in the docs directory...
-  url: '/'}       // ...and serve them at the root of the site 
+  dir: __dirname + '/docs',  // serve Markdown files in the docs directory...
+  url: '/'}                  // ...and serve them at the root of the site
 ));
 app.listen(3000);
 
