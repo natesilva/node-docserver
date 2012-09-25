@@ -4,6 +4,12 @@ Serves Markdown documents as static content. Acts as middleware for Connect (Exp
 
 Use this to serve a folder full of Markdown documents (and its sub-folders) as though they were static content.
 
+## Installation
+
+```
+npm install docserver
+```
+
 ## Features
 
 * Handles Github-Flavored Markdown, using the `marked` package.
