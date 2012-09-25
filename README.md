@@ -160,3 +160,26 @@ var middleware = docserver({
 	// other options…
 });
 ```
+
+## Q: I updated one of my Markdown documents, but `docserver` is still showing the old version.
+
+The old version of the document is cached, either by `docserver` or by your web browser.
+
+If you used a `Cache-Control` header, the document may be cached by your web browser. Hit <kbd>F5</kbd> (or <kbd>Cmd-R</kbd>, or <kbd>Ctrl-R</kbd>) a couple of times to refresh.
+
+If you still see the old document, then it’s been cached by `docserver`. Your options are:
+
+* restart `docserver`
+* or, use the experimental `watch` option so that `docserver` will automatically notice any changes
+
+## Q: How does the cache work?
+
+`docserver` aggressively caches the rendered, HTML form of your documents.
+
+The first time a document is requested, `docserver` has to read it from disk (along with any template) and render it to HTML. On subsequent requests for the same document, it will be served from cache, which should be extremely fast.
+
+In addition, requests that result in a `404` error are cached, so once `docserver` searches for a document and doesn’t find it, it won’t waste time looking for that document again.
+
+By default, once a document is cached, `docserver` will never re-read that document; the cached version will always be served until you reload the server.
+
+If you enable the experimental `watch` option, the cache is emptied every time a change is detected in your `docs` directory or any of its subdirectories. Because it may be resource-intensive, this option is turned off by default. Enabling it when you have a large set of documents or subdirectories may exhaust available file handles. If you only have a few documents or subdirectories, feel free to try it out. Contributions to improve this feature are welcome.
