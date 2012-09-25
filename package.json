@@ -2,7 +2,7 @@
   "author": "Nate Silva <nate@natesilva.com> (http://natesilva.com/)",
   "name": "docserver",
   "description": "Serve Markdown documents as static content (middleware)",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "homepage": "https://github.com/natesilva/docserver",
   "repository": {
     "type": "git",
@@ -27,5 +27,8 @@
     "connect": "~2.4.6",
     "union": "~0.3.4",
     "tap": "~0.3.1"
+  },
+  "bin": {
+    "docserver": "./bin/docserver"
   }
 }
