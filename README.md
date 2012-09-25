@@ -51,6 +51,30 @@ A `template.html` file, if present in the same directory as a Markdown document,
 
 This allows you to have a default template, and override with custom templates in each subdirectory.
 
+## Template syntax
+
+#### {{{ title }}}
+
+In `template.html`, the text `{{{ title }}}` will be replaced by the current document’s title. The title is guessed by taking the contents of the first non-empty HTML tag from the rendered HTML. In other words, since most people usually start their Markdown documents with an &lt;h1&gt; tag, that tag’s contents become the title.
+
+#### {{{ markdown }}}
+
+In `template.html`, the text `{{{ markdown }}}` will be replaced by the HTML that was rendered from the Markdown document.
+
+### Example template
+
+``` html
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{{ title }}}</title>
+</head>
+<body>
+{{{ markdown }}}
+</body>
+</html>
+```
+
 # Directory structure example
 For this example, assume the following directory structure:
 
