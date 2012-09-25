@@ -19,5 +19,5 @@ app.use(docserver({
 
 http.createServer(app).listen(port);
 
-console.log('docserver ' + docserver.version + ' serving ' + dir + ' on port ' +
-  port + ' (with Connect)');
+console.log(docserver.version + ' serving ' + dir + ' on port ' + port +
+  ' (with Connect)');

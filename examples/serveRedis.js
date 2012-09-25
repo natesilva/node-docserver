@@ -43,5 +43,5 @@ http.createServer(function(req, res) {
 
 }).listen(port);
 
-console.log('docserver ' + docserver.version + ' serving ' + dir + ' on port ' +
-  port + ' (with Redis as cache)');
+console.log(docserver.version + ' serving ' + dir + ' on port ' + port +
+  ' (with Redis as cache)');

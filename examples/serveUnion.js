@@ -32,11 +32,12 @@ var server = union.createServer({
     logger,
     docserver({
       url: '/',
-      dir: dir
+      dir: dir,
+      headers: {'X-Powered-By': 'Narwhals'}
     })
 
   ]
 }).listen(port);
 
-console.log('docserver ' + docserver.version + ' serving ' + dir + ' on port ' +
-  port + ' (with Union)');
+console.log(docserver.version + ' serving ' + dir + ' on port ' + port +
+  ' (with Union)');
