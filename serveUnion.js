@@ -33,4 +33,4 @@ var server = union.createServer({
   ]
 }).listen(3000);
 
-console.log('example union server listening on port 3000');
+console.log('example Union server listening on port 3000');
