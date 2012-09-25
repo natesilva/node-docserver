@@ -30,6 +30,6 @@
     "redis": "~0.8.1"
   },
   "bin": {
-    "docserver": "./bin/docserver"
+    "docserver": "./bin/serve.js"
   }
 }
