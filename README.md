@@ -213,3 +213,15 @@ In addition, requests that result in a `404` error are cached, so once `docserve
 By default, once a document is cached, `docserver` will never re-read that document; the cached version will always be served until you reload the server.
 
 If you enable the experimental `watch` option, the cache is emptied every time a change is detected in your `docs` directory or any of its subdirectories. Because it may be resource-intensive, this option is turned off by default. Enabling it when you have a large set of documents or subdirectories may exhaust available file handles. If you only have a few documents or subdirectories, feel free to try it out. Contributions to improve this feature are welcome.
+
+## Q: How does the CLI (command-line interface) work?
+
+To serve the current directory, just type `docserver`. (This assumes you had installed `docserver` globally by passing the `-g` option to `npm install`.)
+
+The CLI takes two arguments, the local filesystem directory to serve, and the port number on which to listen:
+
+```
+docserver [dir] [port]
+```
+
+The command-line interface is not intended as a production web server. Rather, it’s a quick way to read local folders containing documentation.
