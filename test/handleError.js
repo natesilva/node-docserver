@@ -1,13 +1,14 @@
 var test = require('tap').test
   , fs = require('fs')
   , handleError = require('../lib/docserver/handleError.js')
-  , fs = require('fs')
+  , MemoryCache = require('../lib/docserver/memoryCache.js')
   ;
 
 
 MIDDLEWARE_OPTIONS = {
   dir: 'docs',
-  extensions: ['.md', '.mdown']
+  extensions: ['.md', '.mdown'],  
+  cache: new MemoryCache()
 };
 
 

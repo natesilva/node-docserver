@@ -1,11 +1,13 @@
 var test = require('tap').test
   , render = require('../lib/docserver/render.js')
   , fs = require('fs')
+  , MemoryCache = require('../lib/docserver/memoryCache.js')
   ;
 
 
 MIDDLEWARE_OPTIONS = {
-  dir: 'docs'
+  dir: 'docs',
+  cache: new MemoryCache()
 };
 
 function testRender(t, md, html, description) {
