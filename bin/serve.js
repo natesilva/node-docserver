@@ -7,7 +7,7 @@ var http = require('http')
   , docserver = require('../')
   ;
 
-var dir = process.argv[2] || path.join(__dirname, '..', 'test', 'docs');
+var dir = process.argv[2] || '.';
 var port = process.argv[3] || 3000;
 
 dir = path.resolve(dir);
