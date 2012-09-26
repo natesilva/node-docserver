@@ -80,22 +80,14 @@ For this example, assume the following directory structure:
 
 ```
 docs/
-|
--- index.md
-|
--- README.md
-|
--- template.html
-|
--- api/
-   |
-   -- index.md
-   |
-   -- template.html
-   |
-   -- v1.0/
-      |
-      -- index.md
+├── index.md
+├── README.md
+├── template.html
+└── api/
+    ├── index.md
+    ├── template.html
+    └── v1.0/
+        └── index.md
 ```
 
 ## Example URLs
@@ -154,7 +146,11 @@ example: `{headers: {'Cache-Control': 'public,max-age=3600'}}`
 
 #### cache
 
-Override the caching subsystem. The default uses an in-memory cache. No other subsystems are provided, but it’s not too hard to write your own. (There is an example using Redis in the `examples` subdirectory.)
+Override the caching subsystem. The default uses an in-memory cache.
+
+To disable caching, set this to `false`. (You must use `false`. “Falsy” values like `0` or `undefined` will not work.)
+ 
+No other subsystems are provided, but there is an example using Redis in the `examples` subdirectory.
 
 example: `{cache: YourCacheClass}`
 
@@ -200,6 +196,7 @@ If you used a `Cache-Control` header, the document may be cached by your web bro
 If you still see the old document, then it’s been cached by `docserver`. Your options are:
 
 * restart `docserver`
+* or, disable server-side caching by passing `false` as the `cache` option
 * or, use the experimental `watch` option so that `docserver` will automatically notice any changes
 
 ## Q: How does the cache work?
@@ -211,6 +208,8 @@ The first time a document is requested, `docserver` has to read it from disk (al
 In addition, requests that result in a `404` error are cached, so once `docserver` searches for a document and doesn’t find it, it won’t waste time looking for that document again.
 
 By default, once a document is cached, `docserver` will never re-read that document; the cached version will always be served until you reload the server.
+
+You also have the option to disable caching by passing `false` as the `cache` option.
 
 If you enable the experimental `watch` option, the cache is emptied every time a change is detected in your `docs` directory or any of its subdirectories. Because it may be resource-intensive, this option is turned off by default. Enabling it when you have a large set of documents or subdirectories may exhaust available file handles. If you only have a few documents or subdirectories, feel free to try it out. Contributions to improve this feature are welcome.
 

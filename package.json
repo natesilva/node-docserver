@@ -2,7 +2,7 @@
   "author": "Nate Silva <nate@natesilva.com> (http://natesilva.com/)",
   "name": "docserver",
   "description": "Serve Markdown documents as static content (middleware)",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/natesilva/node-docserver",
   "repository": {
     "type": "git",
