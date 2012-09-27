@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "marked": "~0.2.5",
-    "async": "~0.1.22"
+    "async": "~0.1.22",
+    "mime": "~1.2.7"
   },
   "devDependencies": {
     "connect": "~2.4.6",

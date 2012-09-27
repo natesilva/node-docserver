@@ -1,9 +1,10 @@
 # node-docserver Release Notes
 
-## 0.1.3 – 2012-09-26
+## 0.1.3 – 2012-09-27
 
-* custom 404 documents are now served for the root (/) URL if appropriate
+* Custom 404 documents are now served for the root (/) URL if appropriate.
+* New “passthrough” option allows files with specified extensions to be served directly without being handled as Markdown.
 
 ## 0.1.2 – 2012-09-26
 
-* caching can be disabled by passing `false` as the `cache` option
+* Caching can be disabled by passing `false` as the `cache` option.

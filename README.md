@@ -138,6 +138,14 @@ example: `{extensions: ['.markdown', '.md']}`
 
 > Defaults to `['.md', '.mdown']`
 
+#### passthrough
+
+Files with these extensions will be served as-is. This allows you to place non-Markdown files, such as CSS, images, and other assets, side-by-side with your Markdown documents.
+
+example: `{passthrough: ['.css', '.js', '.png', '.txt']}`
+
+> Defaults to `['.css', '.png', '.jpg', '.jpeg', '.js']`
+
 #### headers
 
 Add additional HTTP headers to the output.
