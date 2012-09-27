@@ -18,7 +18,7 @@ test('throw a 404 using a template', function(t) {
     t.equal(headers['Content-Type'], 'text/html; charset=UTF-8',
       'Content-Type should be text/html; charset=UTF-8');
     var content = fs.readFileSync('docs/goodbye/404-rendered.html');
-    t.equal(body, content.toString(),
+    t.equal(body.toString(), content.toString(),
       'should render template as expected');
     t.end();
   });

@@ -11,7 +11,7 @@ function testRender(t, md, html, description) {
   render(md, DOCS_DIR, function(err, result) {
     t.notOk(err, 'should complete without error');
     var data = fs.readFileSync(html);
-    t.equal(data.toString(), result, description);
+    t.equal(data.toString(), result.toString(), description);
     t.end();
   });
 }
