@@ -1,5 +1,11 @@
 # node-docserver Release Notes
 
+## 0.1.4 – 2013-01-15
+
+* The “extensions” and “passthrough” options now actually work as documented.
+* Caching using Redis is improved (see the `redisCache.js` and `serveRedis.js` examples).
+
+
 ## 0.1.3 – 2012-09-27
 
 * Custom 404 documents are now served for the root (/) URL if appropriate.
