@@ -1,3 +1,7 @@
+#  DEPRECATED
+
+This experiment from many years ago is no longer supported.
+
 # node-docserver
 
 Serves Markdown documents as static content. Acts as middleware for Connect (Express) and Union (Flatiron).
